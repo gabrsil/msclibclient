@@ -142,6 +142,33 @@ export default function Home(props: any) {
                 </div>
               ))}
             </div>
+            <div className="flex flex-col">
+              {list.map((item) => (
+                <div className="text-lg my-3 flex flex-col">
+                  <div className="border-b mb-3 flex items-center">
+                    <p>{item?.name} ouviu pela primeira vez</p>
+                    <p className="text-sm text-neutral-500 ml-3">há 2 horas</p>
+                  </div>                  
+                  <div className="flex">
+                    {item?.albums?.map((album) => (
+                      <div
+                        className="bg-contain bg-no-repeat flex justify-center items-end mr-2"
+                        style={{
+                          backgroundImage: `linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("${album?.albumImg}")`,
+                          width: "170px",
+                          height: "170px",
+                        }}
+                      >
+                        <p className="text-base font-bold text-white mb-4">
+                          {album?.albumName}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  {/* <img src={item?.albumImg} alt="" /> */}
+                </div>
+              ))}
+            </div>
           </section>
           {/* <MusicAlbum 
         genre={props?.getAlbumById?.album?.artist?.genre}
